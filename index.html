@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Dhinesh Kumar V, senior Java backend developer. Spring Boot microservices and PostgreSQL for healthcare platforms.">
+<title>Dhinesh Kumar V | Java Backend Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7f7;--surface:#fff;--ink:#12242b;--muted:#4b6068;--line:#d2dcdf;--accent:#0b6f6c;--accent-ink:#fff;--flag:#a45f00;
+--head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a1f;--surface:#14252c;--ink:#e7f0f1;--muted:#9bb0b6;--line:#26404a;--accent:#4fc3bd;--accent-ink:#06201f;--flag:#f0b34a}}
+:root[data-theme="dark"]{--bg:#0e1a1f;--surface:#14252c;--ink:#e7f0f1;--muted:#9bb0b6;--line:#26404a;--accent:#4fc3bd;--accent-ink:#06201f;--flag:#f0b34a}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--body)}
+a{color:inherit}:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{width:min(1140px,100% - 48px);margin-inline:auto}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:#0b2428;color:#e8f2f2;border-bottom:1px solid #1d4249}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#0b2428;z-index:11}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font:700 19px var(--head);text-decoration:none}
+nav{display:flex;gap:22px;font-size:15px;flex-wrap:wrap;justify-content:flex-end}
+nav a{text-decoration:none;color:#a9c4c6;padding:6px 0}nav a:hover{color:#5fd0c8}
+
+.hero{background:#0b2428;color:#e8f2f2;--a:#5fd0c8}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:80px 0 56px}
+.hello{font:400 14px var(--mono);color:#f2b45a;margin:0 0 14px}
+h1{font:700 clamp(46px,7vw,90px)/.95 var(--head);letter-spacing:-.035em;margin:0 0 20px}
+.role{font:500 clamp(20px,2.4vw,26px)/1.3 var(--head);color:var(--a);margin:0 0 18px}
+.sum{max-width:56ch;color:#b9d0d1;margin:0 0 28px;font-size:18px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;border:2px solid var(--a)}
+.btn.main{background:var(--a);color:#06201f}.btn.alt{color:var(--a)}.btn:hover{filter:brightness(1.1)}
+.map{margin:0;background:#0f3136;border:1px solid #24505a;border-radius:10px;padding:18px 16px 10px}
+.map svg{display:block;width:100%;height:auto}
+.map figcaption{font:400 13px var(--mono);color:#8fb0b3;margin-top:6px;text-align:center}
+.map .n{fill:#14383e;stroke:#2c5b64;stroke-width:1.5}.map .hot{fill:#5fd0c8}
+.map text{font:500 13px var(--mono);fill:#e8f2f2;text-anchor:middle}.map .hot+text{fill:#06201f}
+.map .l{stroke:#5fd0c8;stroke-width:1.6;fill:none;stroke-dasharray:5 6;animation:flow 1.6s linear infinite}
+.map .l.s{stroke:#6f979b;animation:none}
+@keyframes flow{to{stroke-dashoffset:-22}}
+@media (prefers-reduced-motion:reduce){.map .l{animation:none}}
+.stats{border-top:1px solid #1d4249}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0}
+.stats div{padding:26px 24px 26px 0;font-size:14px;color:#a9c4c6;border-right:1px solid #1d4249;padding-left:24px}
+.stats div:first-child{padding-left:0}.stats div:last-child{border-right:0}
+.stats b{display:block;font:700 30px/1.15 var(--head);color:#fff}
+
+section{padding:88px 0}
+section.alt{background:var(--surface);border-block:1px solid var(--line)}
+h2{font:700 clamp(32px,4vw,46px)/1.1 var(--head);letter-spacing:-.025em;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 48px;max-width:62ch}
+.mono{font:400 13px var(--mono)}
+
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:64px}
+.about p{max-width:64ch;margin:0 0 16px}
+.about .lead{font:500 24px/1.4 var(--head)}
+.profile{margin:0;border-top:1px solid var(--line)}
+.profile div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+.profile dt{color:var(--muted)}.profile dd{margin:0;font-weight:500;text-align:right}
+
+.strengths{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}
+.strengths div{border-top:3px solid var(--accent);padding-top:14px}
+.strengths h3{font:700 18px var(--head);margin:0 0 6px}.strengths p{margin:0;font-size:15px;color:var(--muted)}
+
+.tl{position:relative;margin-left:8px;padding-left:36px;border-left:2px solid var(--line)}
+.job{position:relative;padding:0 0 56px}.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:-46px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.alt .job::before{background:var(--surface)}
+.job .when{font:400 14px var(--mono);color:var(--flag);margin-bottom:4px}
+.job h3{font:700 26px/1.25 var(--head);margin:0}
+.where{color:var(--accent);font-weight:500;margin:2px 0 6px}
+.job>p{color:var(--muted);max-width:70ch;margin:0 0 22px}
+.groups{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.g{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:20px 22px}
+.alt .g{background:var(--bg)}
+.g h4{font:700 16px var(--head);margin:0 0 8px;color:var(--accent)}
+ul{margin:0;padding-left:20px}li{margin:6px 0;font-size:15.5px}li::marker{color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:3px 10px;font-size:14px}
+.job .chips{margin-top:18px}.job .chips span{font:400 12.5px var(--mono)}
+
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px;display:flex;flex-direction:column}
+.proj.lead{grid-column:1/-1;border-left:5px solid var(--accent)}
+.proj time{font:400 13px var(--mono);color:var(--flag)}
+.proj h3{font:700 23px/1.25 var(--head);margin:6px 0 8px}
+.proj p{margin:0 0 12px;color:var(--muted);font-size:16px}
+.proj ul{margin:0 0 18px}.proj .meta{font:400 13.5px/1.5 var(--mono);color:var(--muted);margin:0 0 14px}.proj .env{font:400 13px var(--mono);color:var(--muted);margin:0 0 10px}.proj .env b{color:var(--ink);font-weight:500}.proj .chips{margin-top:auto}
+.proj .chips span{background:var(--bg);font:400 12px var(--mono)}
+.proj.lead .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+
+.case{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.case article{border:1px solid var(--line);border-radius:10px;padding:24px;background:var(--bg)}
+.case .mono{color:var(--flag)}
+.case h3{font:700 19px/1.3 var(--head);margin:6px 0 8px}
+.case p{margin:0;font-size:15px;color:var(--muted)}
+.case b{color:var(--ink);font-weight:600}
+
+.stack{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:230px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row h3{font:700 18px var(--head);margin:0}
+.chips.core span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:500}
+.legend{display:flex;gap:18px;margin:-30px 0 30px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px;background:var(--accent)}
+.legend i.o{background:var(--surface);border:1px solid var(--line)}
+
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.edu div{border:1px solid var(--line);border-radius:10px;padding:24px;background:var(--surface)}
+.edu h3{font:700 20px var(--head);margin:4px 0}.edu p{margin:0;color:var(--muted);font-size:15px}.edu .mono{color:var(--flag)}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.contact dl{margin:0;border-top:1px solid var(--line)}
+.contact dl div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.contact dt{color:var(--muted);font-size:15px}.contact dd{margin:0;font-weight:500;overflow-wrap:anywhere}
+.contact dd a{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+footer{background:#0b2428;color:#a9c4c6;padding:26px 0;font-size:14px}
+
+@media(max-width:900px){
+.hero .wrap{grid-template-columns:1fr;gap:40px;padding:48px 0 40px}
+.stats .wrap{grid-template-columns:1fr 1fr}.stats div{border-bottom:1px solid #1d4249;padding:20px 16px}.stats div:nth-child(odd){padding-left:0}.stats div:nth-child(2n){border-right:0}
+.about,.contact,.edu,.groups,.projects,.case,.row,.proj.lead .cols{grid-template-columns:1fr}
+.about,.contact{gap:36px}.row{gap:8px}.strengths{grid-template-columns:1fr 1fr}
+section{padding:60px 0}nav{gap:16px;font-size:14px}}
+@media(max-width:520px){header .wrap{height:auto;padding:10px 0;flex-direction:column;align-items:flex-start;gap:2px}nav{justify-content:flex-start}.strengths{grid-template-columns:1fr}.tl{padding-left:26px}.job::before{left:-36px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="#top">Dhinesh Kumar V</a>
+<nav aria-label="Main"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#notes">Engineering notes</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav></div></header>
+
+<main id="top">
+<div class="hero">
+ <div class="wrap">
+  <div>
+   <p class="hello">Chennai, India · open to new roles</p>
+   <h1>Dhinesh Kumar V</h1>
+   <p class="role">Senior Java backend developer</p>
+   <p class="sum">I design, secure and run the microservices behind a healthcare platform: Spring Boot 3, Spring Cloud and PostgreSQL, with Kafka behind the notification service, built to stay dependable in production and easy to change.</p>
+   <div class="btns"><a class="btn main" href="mailto:dhineshkumarv.tech@gmail.com">Email me</a><a class="btn alt" href="#experience">View experience</a></div>
+  </div>
+  <figure class="map">
+   <svg viewBox="0 0 460 472" role="img" aria-label="Architecture diagram: a client calls an API gateway, which reaches an orchestration service. The orchestration service coordinates the user, patient, to-do, notification and workflow services. Kafka is used only for notifications. The RC Admin and admin sync applications are separate from the microservices.">
+    <path class="l" d="M230 44V70"/><path class="l" d="M230 108V138"/>
+    <path class="l" d="M230 178L48 216M230 178L140 216M230 178V216M230 178L324 216M230 178L416 216"/>
+    <path class="l" d="M324 256V290"/>
+    <path class="l" d="M48 256V350M140 256V350M232 256V350M416 256V350"/>
+    <path class="l s" d="M310 89H350" stroke-dasharray="3 4"/>
+    <rect class="n" x="170" y="10" width="120" height="34" rx="6"/><text x="230" y="32">Client</text>
+    <rect class="hot" x="150" y="70" width="160" height="38" rx="6"/><text x="230" y="94">API gateway</text>
+    <rect class="n" x="350" y="75" width="100" height="28" rx="6"/><text x="400" y="93" style="font-size:12px">Eureka</text>
+    <rect class="hot" x="120" y="138" width="220" height="40" rx="6"/><text x="230" y="163">Orchestration service</text>
+    <rect class="n" x="6" y="216" width="84" height="40" rx="6"/><text x="48" y="240" style="font-size:11px">user</text>
+    <rect class="n" x="98" y="216" width="84" height="40" rx="6"/><text x="140" y="240" style="font-size:11px">patient</text>
+    <rect class="n" x="190" y="216" width="84" height="40" rx="6"/><text x="232" y="240" style="font-size:11px">to-do</text>
+    <rect class="n" x="282" y="216" width="84" height="40" rx="6"/><text x="324" y="240" style="font-size:11px">notification</text>
+    <rect class="n" x="374" y="216" width="84" height="40" rx="6"/><text x="416" y="240" style="font-size:11px">workflow</text>
+    <rect class="hot" x="246" y="290" width="156" height="30" rx="6"/><text x="324" y="310" style="font-size:11px">Kafka (notifications)</text>
+    <rect class="n" x="6" y="350" width="452" height="34" rx="6"/><text x="232" y="372">PostgreSQL</text>
+    <text x="230" y="410" style="font-size:11px;fill:#8fb0b3">Separate applications, outside the microservices</text>
+    <rect class="n" x="30" y="422" width="180" height="36" rx="6" style="stroke-dasharray:4 4"/><text x="120" y="445">rcadmin</text>
+    <rect class="n" x="250" y="422" width="180" height="36" rx="6" style="stroke-dasharray:4 4"/><text x="340" y="445">admin-sync</text>
+   </svg>
+   <figcaption>RecoveryCOACH: microservices, plus separate admin applications</figcaption>
+  </figure>
+ </div>
+ <div class="stats"><div class="wrap">
+  <div><b>4+ years</b>Java backend engineering</div>
+  <div><b>7 databases</b>kept consistent by one sync service</div>
+  <div><b>Level 3</b>production support and root cause analysis</div>
+  <div><b>Healthcare</b>clinician and patient workflows</div>
+ </div></div>
+</div>
+
+<section id="about"><div class="wrap">
+ <h2>About</h2>
+ <p class="sub">An engineer who has seen the business side first.</p>
+ <div class="about">
+  <div>
+   <p class="lead">I take large, historic systems and turn them into services a team can understand, test and ship.</p>
+   <p>For four years I have worked at SolvEdge on RecoveryCOACH, a healthcare application. I build and maintain Spring Boot microservices, secure them with JWT, tune the SQL and JPA behind them, and handle Level-3 support when production misbehaves.</p>
+   <p>Before software I spent nine years in freight logistics and medical billing, rising to group coordinator. That background means I ask what the user is trying to get done, not only what the ticket says.</p>
+  </div>
+  <dl class="profile">
+   <div><dt>Role</dt><dd>Senior Java backend developer</dd></div>
+   <div><dt>Company</dt><dd>SolvEdge Technology</dd></div>
+   <div><dt>Experience</dt><dd>4+ years in Java</dd></div>
+   <div><dt>Domain</dt><dd>Healthcare software</dd></div>
+   <div><dt>Location</dt><dd>Chennai, India</dd></div>
+   <div><dt>Looking for</dt><dd>Java backend and microservices roles</dd></div>
+  </dl>
+ </div>
+ <div class="strengths">
+  <div><h3>Monolith to services</h3><p>Splitting a core platform into modular Spring Boot services with a gateway and service discovery.</p></div>
+  <div><h3>Secure by default</h3><p>JWT authentication on Spring Security, with consistent error handling across every API.</p></div>
+  <div><h3>Orchestrated services</h3><p>An orchestration service that coordinates the user, patient, to-do, notification and workflow services, with Kafka behind notifications.</p></div>
+  <div><h3>Owns production</h3><p>Reads logs, finds the root cause and fixes it, not just the symptom.</p></div>
+ </div>
+</div></section>
+
+<section id="experience" class="alt"><div class="wrap">
+ <h2>Experience</h2>
+ <p class="sub">What I have built, and the career that led me to it.</p>
+ <div class="tl">
+  <article class="job">
+   <div class="when">Nov 2022 to present</div>
+   <h3>Software engineer, Java backend</h3>
+   <p class="where">SolvEdge Technology Pvt Ltd, Chennai</p>
+   <p>Core backend engineer on RecoveryCOACH, a healthcare platform connecting clinicians, patients and administrators. I work on the microservices (orchestration, user, patient, to-do, notification and workflow) and on the separate RC Admin and admin sync applications.</p>
+   <div class="groups">
+    <div class="g"><h4>Architecture</h4><ul><li>Moved a monolithic integration platform into modular Spring Boot 3.x microservices, coordinated by an orchestration service.</li><li>Migrating the Python document creation (DC) service to Java with security, using AI throughout.</li><li>Set up the API gateway, Eureka discovery and Feign clients between services.</li></ul></div>
+    <div class="g"><h4>Security</h4><ul><li>Built secure REST APIs with JWT authentication on Spring Security.</li><li>Standardised error handling so every service fails in the same readable way.</li></ul></div>
+    <div class="g"><h4>Performance and data</h4><ul><li>Tuned SQL queries, JPA fetch plans, indexing and caching for high-volume transactions.</li><li>Worked with multiple PostgreSQL datasources and transaction boundaries in a sync service.</li></ul></div>
+    <div class="g"><h4>Quality and reliability</h4><ul><li>Wrote JUnit 5 and Mockito suites with 90%+ unit test coverage on core modules, and used SonarQube for code quality.</li><li>Added centralised logging and monitoring hooks that cut issue diagnosis time by 50%. Delivered Level-3 production support with root cause analysis. Built Excel exports and discharge processing in RC Admin.</li></ul></div>
+   </div>
+   <div class="chips"><span>Java 17</span><span>Spring Boot 3</span><span>Spring Security</span><span>Hibernate</span><span>Kafka</span><span>PostgreSQL</span><span>Docker</span><span>Jenkins</span></div>
+  </article>
+  <article class="job">
+   <div class="when">Jan 2017 to Jul 2022</div>
+   <h3>Group coordinator and AR analyst</h3>
+   <p class="where">Oncospark India Pvt Ltd, Chennai</p>
+   <p>Medical billing and revenue cycle work, growing into a team-lead role. This is where I learned how healthcare data and claims actually move, which now helps me model it in code.</p>
+   <ul><li>Led revenue cycle and claims analysis and automated reporting workflows.</li><li>Worked with stakeholders to streamline data verification and keep accuracy high.</li></ul>
+  </article>
+  <article class="job">
+   <div class="when">Dec 2013 to Dec 2016</div>
+   <h3>Freight operations coordinator</h3>
+   <p class="where">JN Freight Forwarders Pvt Ltd, Chennai</p>
+   <ul><li>Managed freight logistics and dispatch scheduling while holding a strong on-time delivery record.</li></ul>
+  </article>
+ </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+ <h2>Projects</h2>
+ <p class="sub">Enterprise backend work on the RecoveryCOACH platform.</p>
+ <div class="projects">
+  <article class="proj lead">
+   <time>Feb 2024 to present</time>
+   <h3>RC Integration: healthcare microservices architecture</h3>
+   <p class="meta">SolvEdge Technology Pvt Ltd, Chennai · Role: Backend Java / Microservices developer</p>
+   <div class="cols"><ul><li>Led the migration of a core monolithic healthcare integration platform into scalable, modular Spring Boot microservices, with an orchestration service coordinating the user, patient, to-do, notification and workflow services.</li><li>Built the Apache Kafka publish-subscribe pipeline behind the notification service, dispatching events in sub-second time with zero data loss.</li><li>Implemented Spring Cloud API Gateway, service discovery and Feign clients for routing, load balancing and fault tolerance.</li></ul><ul><li>Added centralised logging and monitoring hooks, cutting issue diagnosis time by 50% and improving fault resilience.</li><li>Wrote automated suites with JUnit 5 and Mockito, keeping unit test coverage above 90% across core modules.</li><li>Worked with DevOps to containerise services with Docker and automate deployments through Jenkins CI/CD.</li></ul></div>
+   <p class="env"><b>Environment:</b> Java 17, Spring Boot 3.x, Spring Cloud, Apache Kafka, PostgreSQL, Docker, Maven, Git, JUnit 5, Mockito</p>
+   <div class="chips"><span>Java 17</span><span>Spring Boot 3</span><span>Spring Cloud</span><span>Kafka</span><span>PostgreSQL</span><span>Docker</span><span>Jenkins</span><span>JUnit 5</span><span>Mockito</span></div>
+  </article>
+  <article class="proj">
+   <time>Jun 2023 to Jan 2024</time>
+   <h3>RC Integration: patient and task management platform</h3>
+   <p class="meta">SolvEdge Technology Pvt Ltd, Chennai · Role: Java developer</p>
+   <ul><li>Designed and built backend modules connecting hospital clinicians with patients, cutting task scheduling cycle time by 30%.</li><li>Built high-frequency patient monitoring REST APIs with real-time state synchronisation and automated notifications.</li><li>Ran technical code reviews and impact analysis to uphold clean architecture and coding conventions.</li><li>Gave continuous Level-3 production support and resolved high-severity defects within strict SLA deadlines.</li></ul>
+   <p class="env"><b>Environment:</b> Java 11/17, Spring Boot, REST APIs, Hibernate/JPA, PostgreSQL, Jenkins, Postman, Git</p>
+   <div class="chips"><span>Java 11/17</span><span>Spring Boot</span><span>REST</span><span>Hibernate/JPA</span><span>PostgreSQL</span><span>Jenkins</span><span>Postman</span></div>
+  </article>
+  <article class="proj">
+   <time>Jan 2023 to May 2023</time>
+   <h3>RC Admin: hospital specialty and workflow management system</h3>
+   <p class="meta">SolvEdge Technology Pvt Ltd, Chennai · Role: Java developer</p>
+   <ul><li>Built an administrative control system for hospital clinical workflows, organised by medical specialty, service line and body system.</li><li>Created the core hospital reservation engine, improving booking efficiency and cutting resource allocation conflicts by 25%.</li><li>Did impact analysis on upstream and downstream services, reducing peer code review cycles by 20%.</li><li>Worked with business analysts and product owners to turn clinical requirements into clear technical specifications.</li><li>Wrote unit tests, debugged deeply and stabilised modules for enterprise deployment.</li></ul>
+   <p class="env"><b>Environment:</b> Java 8/11, Spring Boot, Spring MVC, Hibernate ORM, MySQL/PostgreSQL, Maven, SVN/Git</p>
+   <div class="chips"><span>Java 8/11</span><span>Spring MVC</span><span>Hibernate ORM</span><span>MySQL</span><span>PostgreSQL</span><span>Maven</span><span>SVN/Git</span></div>
+  </article>
+  <article class="proj">
+   <time>Ongoing</time>
+   <h3>Admin sync service</h3>
+   <p class="meta">SolvEdge Technology Pvt Ltd, Chennai</p>
+   <ul><li>Keeps seven PostgreSQL databases consistent across users, workflows, to-dos, appointments, notifications, audit and sync data.</li><li>Multi-datasource configuration and transactions, with compensating actions to undo partial syncs.</li><li>Runs as a separate application, outside the microservices, and reports sync status back to RC Admin.</li></ul>
+   <p class="env"><b>Environment:</b> Spring Boot, Spring Data JPA, PostgreSQL</p>
+   <div class="chips"><span>Spring Boot</span><span>Spring Data JPA</span><span>Multi-datasource</span><span>PostgreSQL</span></div>
+  </article>
+  <article class="proj">
+   <time>Ongoing</time>
+   <h3>DC: document creation, Python to Java</h3>
+   <p class="meta">SolvEdge Technology Pvt Ltd, Chennai</p>
+   <ul><li>Moving the document creation (DC) service, which produces HTML documents, PDFs and surveys for RC, from its original Python code to Java.</li><li>Building security into the Java version.</li><li>Using AI tools across the whole migration process.</li></ul>
+   <p class="env"><b>Environment:</b> Java (migrated from Python), AI-assisted development</p>
+   <div class="chips"><span>Java</span><span>Python to Java</span><span>HTML and PDF</span><span>Surveys</span><span>Security</span><span>AI-assisted</span></div>
+  </article>
+ </div>
+</div></section>
+
+<section id="notes" class="alt"><div class="wrap">
+ <h2>Engineering notes</h2>
+ <p class="sub">A recent production investigation. One failing sync run turned out to hide three separate problems.</p>
+ <div class="case">
+  <article><span class="mono">Finding 1</span><h3>A duplicate row broke an entity load</h3><p>Hibernate raised “duplicate row found” while loading an eagerly fetched association. <b>Lesson:</b> check join mappings and the data under them, not just the query that triggered the load.</p></article>
+  <article><span class="mono">Finding 2</span><h3>The real error was masked</h3><p>A catch block cast every exception to one custom type and threw a ClassCastException instead. <b>Fix:</b> catch specific types and always log the original exception with its stack trace.</p></article>
+  <article><span class="mono">Finding 3</span><h3>Cleanup failed on a foreign key</h3><p>The compensation step deleted parent rows while child rows still pointed at them, so rollback never finished. <b>Fix:</b> delete children first, flush, then delete the parents.</p></article>
+ </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+ <h2>Skills</h2>
+ <p class="sub">The tools I use day to day.</p>
+ <div class="legend"><span><i></i>Daily use</span><span><i class="o"></i>Working or basic knowledge</span></div>
+ <div class="stack">
+  <div class="row"><h3>Backend and frameworks</h3><div class="chips core"><span>Java 8/11/17</span><span>Spring Boot 3.x</span><span>Spring MVC</span><span>Spring Security</span><span>Spring Data JPA</span><span>Hibernate</span><span>REST APIs</span><span>JWT</span></div></div>
+  <div class="row"><h3>Microservices and messaging</h3><div class="chips core"><span>Microservices architecture</span><span>Apache Kafka</span><span>Eureka</span><span>API gateway</span><span>Feign clients</span><span>Event-driven design</span></div></div>
+  <div class="row"><h3>Databases and caching</h3><div class="chips core"><span>PostgreSQL</span><span>Query optimisation</span><span>Indexing</span><span>Transaction management</span><span style="background:var(--surface);color:var(--ink);border-color:var(--line);font-weight:400">MySQL</span><span style="background:var(--surface);color:var(--ink);border-color:var(--line);font-weight:400">Redis (basics)</span></div></div>
+  <div class="row"><h3>DevOps and build</h3><div class="chips core"><span>Docker</span><span>Jenkins CI/CD</span><span>Maven</span><span>Git</span><span>Apache Tomcat</span><span style="background:var(--surface);color:var(--ink);border-color:var(--line);font-weight:400">Gitblit</span><span style="background:var(--surface);color:var(--ink);border-color:var(--line);font-weight:400">SVN</span><span style="background:var(--surface);color:var(--ink);border-color:var(--line);font-weight:400">Linux shell</span></div></div>
+  <div class="row"><h3>Testing and quality</h3><div class="chips core"><span>JUnit 5</span><span>Mockito</span><span>Integration testing</span><span>SonarQube</span><span>Postman</span><span>Production debugging</span></div></div>
+  <div class="row"><h3>Design and process</h3><div class="chips core"><span>Design patterns</span><span>SOLID</span><span>Clean architecture</span><span>Agile / Scrum</span><span>Impact analysis</span><span>Code reviews</span></div></div>
+ </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+ <h2>Education</h2><p class="sub" style="margin-bottom:32px">Where I started.</p>
+ <div class="edu"><div><span class="mono">2009 to 2013</span><h3>B.E. in Electrical and Electronics Engineering</h3><p>New Prince Shri Bhavani College of Engineering and Technology, Anna University</p></div>
+ <div><span class="mono">Career change, 2022</span><h3>Self-driven move into software</h3><p>Moved from medical billing into Java development and have worked on production microservices since.</p></div></div>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+ <div><h2>Let’s talk</h2><p class="sub" style="margin:0">I am open to Java backend, Spring Boot and microservices roles. Email is the quickest way to reach me.</p></div>
+ <dl>
+  <div><dt>Email</dt><dd><a href="mailto:dhineshkumarv.tech@gmail.com">dhineshkumarv.tech@gmail.com</a></dd></div>
+  <div><dt>Phone</dt><dd><a href="tel:+919383777783">+91 93837 77783</a></dd></div>
+  <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/dhineshkumar" target="_blank" rel="noopener">linkedin.com/in/dhineshkumar</a></dd></div>
+  <div><dt>Location</dt><dd>Chennai, Tamil Nadu, India</dd></div>
+ </dl>
+</div></section>
+</main>
+<footer><div class="wrap">© 2026 Dhinesh Kumar V</div></footer>
+</body>
+</html>
